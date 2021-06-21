@@ -1,0 +1,63 @@
+<%- include('../views/partials/header'); %>
+<main>
+    <center>
+        <br />
+        <div style="font-weight: 800; font-size: 60px;">
+            <span>IALP</span>
+        </div>
+        <div>
+            <button id="connectButton"" onclick=" login()">Connect</button>
+            <span id="ethAddress"></span>
+        </div>
+        <p></p>
+        <img style="height: 20px; width: 20px;" src="/uploads/Quickswap.png">
+        <a href="https://quickswap.exchange">
+            Buy on QuickSwap</a>
+        <p></p>
+        <p>Contract: 0xA12c0CB570540B830f12a8e3579F999e93A73Aa2</p>
+        <p></p>
+        <div style="width: 400px;">
+            <h4>Use Case:</h4>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <br />
+        <h4>Tokenomics:</h4>
+        <p></p>
+        <div>
+            <p>- Total Supply ...</p>
+            <p>- Initial Supply ...</p>
+            <p>- Burn ...</p>
+            <p>- Reflection ...</p>
+        </div>
+        <br />
+
+        <p style="font-size: medium;">Made with <span>&#10084; | </span>
+            <i class="fab fa-twitter fa-fw"></i>
+            <i class="fab fa-telegram fa-fw"></i>
+            <i class="fab fa-reddit fa-fw"></i>
+            <i class="fab fa-facebook fa-fw"></i>
+        </p>
+        <br />
+        <script>
+            Moralis.initialize("dUMJfv2n7gRdbxFXXA2GOzOBJZCIh8BIA1i5sGUO");
+            Moralis.serverURL = 'https://8k58x9n5vu6p.moralis.io:2053/server';
+
+            document.getElementById("ethAddress").style.display = "none";
+            document.getElementById("connectButton").style.display = "block";
+
+            async function login() {
+                var user = await Moralis.Web3.authenticate();
+                if (user) {
+                    const user = Moralis.User.current();
+                    const userAddress = user.get('ethAddress');
+                    document.getElementById("ethAddress").style.display = "block";
+                    document.getElementById("ethAddress").innerHTML = 'Connected: ' + userAddress;
+                    document.getElementById("connectButton").style.display = "none";
+                    console.log(user);
+                    alert('connected!');
+                }
+            }
+        </script>
+    </center>
+</main>
+<%- include('../views/partials/footer'); %>
