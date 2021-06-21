@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: linear-gradient(0deg, #161616 0%, rgb(2, 0, 24) 100%);
+    background: linear-gradient(0deg, #14212b 0%, rgb(0, 8, 24) 100%);
     font-family: 'Source Code Pro', monospace;
     color: white;
     font-size: 14px;
@@ -11,7 +11,7 @@ body {
 
 .image-blurred-edge {
     border-radius: 10%;
-    width: 90px;
-    height: 90px;
-    opacity: 0.6;
+    width: 520px;
+    height: 130px;
+    margin-top: 5px;
 }
