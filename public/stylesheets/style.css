@@ -1,10 +1,9 @@
 html {
-    min-height:100%;;
-    width: 100%;
+    min-height:100%;
 }
 
 body {
-    background: linear-gradient(0deg, #1f1f1f 0%, black 100%);
+    background: linear-gradient(0deg, #161616 0%, rgb(2, 0, 24) 100%);
     font-family: 'Source Code Pro', monospace;
     color: white;
     font-size: 14px;
