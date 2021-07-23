@@ -109,8 +109,6 @@ for (var j = 0; j < States.length; j++) {
 	monthlySummaryByState.push(objByState);
 }
 
-console.log(monthlySummaryByState);
-
 router.get('/', (req, res) => {
 	res.render('home',{monthlySummary: monthlySummary, monthlySummaryByState: monthlySummaryByState});
 });

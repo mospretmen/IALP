@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: linear-gradient(0deg, #000000 0%, rgb(0, 8, 24) 100%);
+    background: linear-gradient(0deg, rgb(0, 13, 39) 0%, rgb(0, 8, 24) 100%);
     font-family: 'Source Code Pro', monospace;
     color: white;
     font-size: 14px;
