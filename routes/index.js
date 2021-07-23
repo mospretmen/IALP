@@ -83,42 +83,57 @@ for (var j = 0; j < States.length; j++) {
 		}
 	}
 	var objByState = {
-			SubjectState: States[j],
-			LoanAmountSummary: {
-				Sum: _.sum(loanArr),
-				Average: _.sum(loanArr) / loanArr.length,
-				Median: median(loanArr),
-				Minimum: _.min(loanArr),
-				Maximum: _.max(loanArr)
-			},
-			SubjectAppraisedAmountSummary: {
-				Sum: _.sum(apprArr),
-				Average: _.sum(apprArr) / apprArr.length,
-				Median: median(apprArr),
-				Minimum: _.min(apprArr),
-				Maximum: _.max(apprArr)
-			},
-			InterestRateSummary: {
-				Sum: _.sum(intArr),
-				Average: _.sum(intArr) / intArr.length,
-				Median: median(intArr),
-				Minimum: _.min(intArr),
-				Maximum: _.max(intArr)
-			}
+		SubjectState: States[j],
+		LoanAmountSummary: {
+			Sum: _.sum(loanArr),
+			Average: _.sum(loanArr) / loanArr.length,
+			Median: median(loanArr),
+			Minimum: _.min(loanArr),
+			Maximum: _.max(loanArr)
+		},
+		SubjectAppraisedAmountSummary: {
+			Sum: _.sum(apprArr),
+			Average: _.sum(apprArr) / apprArr.length,
+			Median: median(apprArr),
+			Minimum: _.min(apprArr),
+			Maximum: _.max(apprArr)
+		},
+		InterestRateSummary: {
+			Sum: _.sum(intArr),
+			Average: _.sum(intArr) / intArr.length,
+			Median: median(intArr),
+			Minimum: _.min(intArr),
+			Maximum: _.max(intArr)
+		}
 	}
 	monthlySummaryByState.push(objByState);
 }
 
 router.get('/', (req, res) => {
-	res.render('home',{monthlySummary: monthlySummary, monthlySummaryByState: monthlySummaryByState});
+	res.render('home', {
+		monthlySummary: monthlySummary,
+		monthlySummaryByState: monthlySummaryByState
+	});
 });
 
 router.get('/monthlySummaryJSON', (req, res) => {
-	res.json({monthlySummary: monthlySummary});
+	res.json({
+		monthlySummary: monthlySummary
+	});
 });
 
 router.get('/monthlySummaryByStateJSON', (req, res) => {
-	res.json({monthlySummaryByState: monthlySummaryByState});
+	res.json({
+		monthlySummaryByState: monthlySummaryByState
+	});
 });
+
+// fs.writeFile('monthlySummary.json', JSON.stringify(monthlySummary), (error) => {
+// 	if (error) throw error;
+// });
+// fs.writeFile('monthlySummaryByState.json', JSON.stringify(monthlySummaryByState), (error) => {
+// 	if (error) throw error;
+// });
+
 
 module.exports = router;
